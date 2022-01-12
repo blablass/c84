@@ -4,7 +4,9 @@ roverx=100;
 rovery=100;
 roverwidth=100;
 roverheight=80;
-bg="mars.jpg";
+img_array=["img1.jpg","mars.jpg","img2.jpg","img3.jpg"]
+randomnum=Math.floor(Math.random()*4)
+bg=img_array[randomnum];
 rover="rover.png";
 function add(){
     bgimg=new Image();
@@ -40,5 +42,33 @@ function my_keydown(e){
     if (keypress=='40'){
         roverdown();
         console.log("downarrowispressed");
+    }
+}
+function roverup(){
+    if(rovery >=0){
+        rovery-=10
+        uploadbg()
+        uploadrover()
+    }
+}
+function roverdown(){
+    if(rovery <=700){
+        rovery+=10
+        uploadbg()
+        uploadrover()
+    }
+}
+function roverleft(){
+    if(roverx >=0){
+        roverx-=10
+        uploadbg()
+        uploadrover()
+    }
+}
+function roverright(){
+    if(roverx <=900){
+        roverx+=10
+        uploadbg()
+        uploadrover()
     }
 }
